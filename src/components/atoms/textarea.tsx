@@ -1,9 +1,9 @@
 import { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 import { classNames } from '../../utils/classNames';
 
-type InputProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {};
+type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {};
 
-function Textarea({ ...rest }: InputProps) {
+function Textarea({ ...rest }: TextareaProps) {
   return (
     <textarea
       {...rest}

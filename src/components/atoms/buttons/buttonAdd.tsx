@@ -1,9 +1,9 @@
 import { ButtonHTMLAttributes } from 'react';
-import { classNames } from '../../utils/classNames';
+import { classNames } from '../../../utils/classNames';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {};
 
-function Button({ children, type = 'button', ...rest }: ButtonProps) {
+function ButtonAdd({ children, type = 'button', ...rest }: ButtonProps) {
   return (
     <button
       {...rest}
@@ -20,4 +20,4 @@ function Button({ children, type = 'button', ...rest }: ButtonProps) {
   );
 }
 
-export default Button;
+export default ButtonAdd;

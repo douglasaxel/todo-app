@@ -8,7 +8,7 @@ export type Todo = {
   isCompleted: boolean;
 };
 
-type TodoState = {
+export type TodoState = {
   todos: Todo[];
 };
 
@@ -36,7 +36,7 @@ const todoSlice = createSlice({
     removeTodo: ({ todos }, action: PayloadAction<string>) => {
       const index = todos.findIndex((t) => t.id === action.payload);
       if (index >= 0) {
-        todos.slice(index, 1);
+        todos.splice(index, 1);
       }
     },
     changeTodoStatus: ({ todos }, action: PayloadAction<string>) => {
@@ -48,16 +48,17 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTodo, changeTodoStatus, removeTodo } = todoSlice.actions;
+export const { addTodo, updateTodo, removeTodo, changeTodoStatus } =
+  todoSlice.actions;
 
-export const getTodos = (state: RootState) => state.todos.todos;
+export const getTodos = (state: RootState) => state.todos;
 
-export const totalTodos = (state: RootState) => state.todos.todos.length;
+export const totalTodos = (state: RootState) => state.todos.length;
 
 export const totalTodosCompleted = (state: RootState) =>
-  state.todos.todos.filter((t) => t.isCompleted).length;
+  state.todos.filter((t) => t.isCompleted).length;
 
 export const totalTodosIncompleted = (state: RootState) =>
-  state.todos.todos.filter((t) => !t.isCompleted).length;
+  state.todos.filter((t) => !t.isCompleted).length;
 
 export default todoSlice.reducer;
